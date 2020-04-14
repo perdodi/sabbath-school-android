@@ -27,7 +27,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
-import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.crashlytics.android.Crashlytics;
@@ -40,7 +39,7 @@ import java.io.File;
 import static com.cryart.sabbathschool.view.SSReadingView.readFileFromAssets;
 import static com.cryart.sabbathschool.view.SSReadingView.readFileFromFiles;
 
-public class SSBibleVersesView extends WebView {
+public class SSBibleVersesView extends SSThemeApplyWebView {
     private String content_app;
 
     public SSBibleVersesView(final Context context) {

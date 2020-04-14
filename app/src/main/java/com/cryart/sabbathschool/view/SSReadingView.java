@@ -31,6 +31,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import androidx.core.view.GestureDetectorCompat;
+
 import android.util.AttributeSet;
 import android.util.Base64;
 import android.util.Log;
@@ -66,7 +67,7 @@ import java.util.List;
 
 import static android.content.Context.CLIPBOARD_SERVICE;
 
-public class SSReadingView extends WebView {
+public class SSReadingView extends SSThemeApplyWebView {
     private static final String TAG = SSReadingView.class.getSimpleName();
 
     public static final String SEARCH_PROVIDER = "https://www.google.com/search?q=%s";
@@ -122,6 +123,8 @@ public class SSReadingView extends WebView {
             this.addJavascriptInterface(ssReadViewBridge, bridgeName);
         }
     }
+
+
 
     @Override
     public ActionMode startActionMode(ActionMode.Callback callback, int type) {
@@ -375,7 +378,7 @@ public class SSReadingView extends WebView {
             ((SSReadingActivity)context).runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    loadUrl(String.format("javascript:if(typeof ssReader !== \"undefined\"){ssReader.setTheme('%s');}", theme));
+                   loadUrl(String.format("javascript:if(typeof ssReader !== \"undefined\"){ssReader.setTheme('%s');}", theme));
                 }
             });
         }
