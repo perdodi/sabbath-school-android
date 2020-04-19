@@ -75,12 +75,10 @@ public class SSReadingViewAdapter extends PagerAdapter {
         ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.ss_reading_view, collection, false);
         collection.addView(layout);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.mContext);
         SSReadingDisplayOptions ssReadingDisplayOptions = new SSReadingDisplayOptions(
-                prefs.getString(SSConstants.SS_SETTINGS_THEME_KEY, SSReadingDisplayOptions.SS_THEME_LIGHT),
-                prefs.getString(SSConstants.SS_SETTINGS_SIZE_KEY, SSReadingDisplayOptions.SS_SIZE_MEDIUM),
-                prefs.getString(SSConstants.SS_SETTINGS_FONT_KEY, SSReadingDisplayOptions.SS_FONT_LATO)
-        );
+                PreferenceManager.getDefaultSharedPreferences(this.mContext),
+                mContext.getResources().getConfiguration()
+                );
 
         final SSReadingView ssReadingView = layout.findViewById(R.id.ss_reading_view);
         ssReadingView.setReadingDisplayOptions(ssReadingDisplayOptions);

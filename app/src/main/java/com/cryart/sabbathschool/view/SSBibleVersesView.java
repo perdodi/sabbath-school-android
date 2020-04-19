@@ -25,6 +25,7 @@ package com.cryart.sabbathschool.view;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
 import android.webkit.WebViewClient;
@@ -84,11 +85,9 @@ public class SSBibleVersesView extends SSThemeApplyWebView {
 
         try {
             verseContent = bibleVersion.verses.get(verse);
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             SSReadingDisplayOptions ssReadingDisplayOptions = new SSReadingDisplayOptions(
-                    prefs.getString(SSConstants.SS_SETTINGS_THEME_KEY, SSReadingDisplayOptions.SS_THEME_LIGHT),
-                    prefs.getString(SSConstants.SS_SETTINGS_SIZE_KEY, SSReadingDisplayOptions.SS_SIZE_MEDIUM),
-                    prefs.getString(SSConstants.SS_SETTINGS_FONT_KEY, SSReadingDisplayOptions.SS_FONT_LATO)
+                    PreferenceManager.getDefaultSharedPreferences(getContext()),
+                    getContext().getResources().getConfiguration()
             );
 
             String content = content_app.replaceAll("\\{\\{content\\}\\}", verseContent);

@@ -125,11 +125,9 @@ public class SSReadingViewModel implements SSViewModel, SSReadingView.ContextMen
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.keepSynced(true);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         ssReadingDisplayOptions = new SSReadingDisplayOptions(
-                prefs.getString(SSConstants.SS_SETTINGS_THEME_KEY, SSReadingDisplayOptions.SS_THEME_LIGHT),
-                prefs.getString(SSConstants.SS_SETTINGS_SIZE_KEY, SSReadingDisplayOptions.SS_SIZE_MEDIUM),
-                prefs.getString(SSConstants.SS_SETTINGS_FONT_KEY, SSReadingDisplayOptions.SS_FONT_LATO)
+                PreferenceManager.getDefaultSharedPreferences(context),
+                context.getResources().getConfiguration()
         );
 
         ssLessonLoadingVisibility = new ObservableInt(View.INVISIBLE);

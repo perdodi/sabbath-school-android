@@ -33,8 +33,8 @@
         <item name="textAppearanceBody2">@style/SS.TextAppearance.Body2</item>
         <item name="textAppearanceHeadline5">@style/SS.TextAppearance.HeadLine5</item>
         <item name="textAppearanceHeadline6">@style/SS.TextAppearance.HeadLine6</item>
-        <item name="android:textColorSecondary">@color/colorSecondary</item>
         <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
 
         <item name="materialAlertDialogTheme">@style/Theme.SS.AlertDialog</item>
         <!--Should remove this property when we remove the old android-rate lib -->
@@ -81,4 +81,11 @@
     <style name="SSSplashTheme" parent="AppTheme.NoActionBar">
         <item name="android:windowBackground">@drawable/ss_splash_activity_background</item>
     </style>
+
+
+    <style name="AppTheme.NoActionBar.ThemeSepia" parent="AppTheme.NoActionBar">
+        <item name="android:windowBackground">@color/colorDisplayThemeSepia</item>
+    </style>
+
+
 </resources>

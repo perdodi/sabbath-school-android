@@ -5,7 +5,6 @@ import android.preference.PreferenceManager
 import android.util.AttributeSet
 import android.webkit.WebView
 import com.cryart.sabbathschool.misc.SSColorThemeHelper.Companion.getBackgroundColorFromSSReadingDisplayOptions
-import com.cryart.sabbathschool.misc.SSConstants
 import com.cryart.sabbathschool.model.SSReadingDisplayOptions
 
 open class SSThemeApplyWebView
@@ -18,12 +17,11 @@ open class SSThemeApplyWebView
     }
 
     private fun setBackgroundColorFromTheme(context: Context) {
-        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
-        val ssReadingDisplayOptions = SSReadingDisplayOptions(
-                prefs.getString(SSConstants.SS_SETTINGS_THEME_KEY, SSReadingDisplayOptions.SS_THEME_LIGHT),
-                prefs.getString(SSConstants.SS_SETTINGS_SIZE_KEY, SSReadingDisplayOptions.SS_SIZE_MEDIUM),
-                prefs.getString(SSConstants.SS_SETTINGS_FONT_KEY, SSReadingDisplayOptions.SS_FONT_LATO)
-        )
-        setBackgroundColor(getBackgroundColorFromSSReadingDisplayOptions(ssReadingDisplayOptions))
+        setBackgroundColor(
+                getBackgroundColorFromSSReadingDisplayOptions(
+                        SSReadingDisplayOptions(
+                            PreferenceManager.getDefaultSharedPreferences(context),
+                            context.resources.configuration
+        )))
     }
 }

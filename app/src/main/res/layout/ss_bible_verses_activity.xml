@@ -32,6 +32,7 @@
     </data>
 
     <androidx.cardview.widget.CardView
+        android:background="@color/colorBackground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="?attr/actionBarSize"

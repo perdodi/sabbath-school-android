@@ -79,7 +79,7 @@ public class SSSeekBar extends SeekBar {
 
     private void initPaint() {
         mPaint = new Paint();
-        mPaint.setColor((getResources().getColor(R.color.accent)));
+        mPaint.setColor((getResources().getColor(R.color.colorAccent)));
         mPaint.setStrokeCap(Paint.Cap.SQUARE);
         mPaint.setStrokeWidth(getPxFromDp(STROKE_WIDTH_IN_DP));
         mPaint.setAntiAlias(true);

@@ -22,7 +22,8 @@
   -->
 
 <resources>
-    <color name="list_divider">#1fffffff</color>
-    <color name="colorBackground">#212121</color>
-    <color name="text_primary">@android:color/white</color>
+    <color name="colorBackground">#212325</color>
+    <color name="text_primary">#949595</color>
+    <color name="text_secondary">#616161</color>
+    <color name="list_divider">#1f949595</color> <!-- or more clear #1fffffff -->
 </resources>

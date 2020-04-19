@@ -115,6 +115,7 @@
     <string name="ss_settings_color_theme_light">Light</string>
     <string name="ss_settings_color_theme_sepia">Sepia</string>
     <string name="ss_settings_color_theme_dark">Dark</string>
+    <string name="ss_settings_color_theme_system_default">System default</string>
 
     <string name="ss_settings_typeface">Typeface</string>
     <string translatable="false" name="ss_settings_typeface_andada">Andada</string>
@@ -159,4 +160,5 @@
     <string translatable="false" name="facebook_app_id">1440555266255436</string>
     <string translatable="false" name="fb_login_protocol_scheme">1440555266255436</string>
     <string translatable="false" name="ss_quarterly_cover_transition">ssQuarterlyCoverTransition</string>
+
 </resources>

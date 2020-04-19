@@ -22,10 +22,19 @@
   -->
 
 <resources>
-
     <color name="colorPrimary">#16a365</color>
     <color name="colorPrimaryDark">#18704A</color>
-    <color name="colorAccent">#ff4081</color>
+    <color name="colorAccent">@color/colorPrimary</color>
+
+    <!-- change depend on theme -->
+    <color name="colorBackground">#f2f5f7</color>
+    <color name="text_primary">#616161</color>
+    <color name="text_secondary">#b4b4b4</color>
+    <color name="list_divider">#1f000000</color>
+
+
+
+
 
     <color name="colorSecondary">#b4b4b4</color>
     <color name="colorSecondaryLight">#cccccc</color>
@@ -33,16 +42,8 @@
     <color name="colorSecondaryDark">#616161</color>
     <color name="colorSecondaryDarker">#333333</color>
 
-    <color name="colorBackground">#f2f5f7</color>
     <color name="colorOverlay">#5b000000</color>
 
     <color name="colorDisplayThemeSepia">#f2dec3</color>
     <color name="colorDisplayThemeDark">#484848</color>
-
-    <color name="primary">@color/colorPrimary</color>
-    <color name="accent">@color/colorAccent</color>
-
-    <color name="list_divider">#1f000000</color>
-
-    <color name="text_primary">@color/colorSecondaryDark</color>
 </resources>

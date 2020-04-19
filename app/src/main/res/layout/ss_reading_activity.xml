@@ -33,6 +33,7 @@
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:background="@color/colorBackground"
         android:id="@+id/ss_reading_coordinator"
         android:layout_width="match_parent"
         android:keepScreenOn="true"

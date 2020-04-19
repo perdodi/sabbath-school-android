@@ -27,7 +27,7 @@
             android:key="ss_settings_display_options_theme"
             android:title="@string/ss_settings_color_theme"
             android:summary="%s"
-            android:defaultValue="light"
+            android:defaultValue="system_default"
             android:entries="@array/ss_settings_display_options_theme_entries"
             android:entryValues="@array/ss_settings_display_options_theme_values" />
 

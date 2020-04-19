@@ -30,6 +30,7 @@
     </data>
 
     <RelativeLayout
+        android:background="@color/colorBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="@{progressVisibility}">
@@ -37,6 +38,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/text_primary"
             android:layout_above="@+id/ss_quarterlies_loading"
             android:text="@{progressLabel}"
             android:layout_centerHorizontal="true" />

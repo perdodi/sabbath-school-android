@@ -22,6 +22,12 @@
 
 package com.cryart.sabbathschool.model;
 
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+
+import com.cryart.sabbathschool.SSApplication;
+import com.cryart.sabbathschool.misc.SSConstants;
+
 public class SSReadingDisplayOptions {
     public static final String SS_THEME_LIGHT = "light";
     public static final String SS_THEME_SEPIA = "sepia";
@@ -54,5 +60,36 @@ public class SSReadingDisplayOptions {
         this.theme = theme;
         this.size = size;
         this.font = font;
+    }
+
+    public SSReadingDisplayOptions(SharedPreferences sharedPreferences, Configuration configuration){
+        this.theme =  sharedPreferences.getString(SSConstants.SS_SETTINGS_THEME_KEY, getDefaultTheme(configuration));
+        if(this.theme.equals("system_default")){
+            this.theme = getDefaultTheme(configuration);
+        }
+        this.size = sharedPreferences.getString(SSConstants.SS_SETTINGS_SIZE_KEY, SSReadingDisplayOptions.SS_SIZE_MEDIUM);
+        this.font =  sharedPreferences.getString(SSConstants.SS_SETTINGS_FONT_KEY, SSReadingDisplayOptions.SS_FONT_LATO);
+    }
+
+    private String getDefaultTheme(Configuration configuration){
+        String toReturn = "";
+
+        int currentNightMode = configuration.uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        switch (currentNightMode) {
+            case Configuration.UI_MODE_NIGHT_NO:
+                // Night mode is not active, we're using the light theme
+                toReturn = SSReadingDisplayOptions.SS_THEME_LIGHT;
+                break;
+            case Configuration.UI_MODE_NIGHT_YES:
+                // Night mode is active, we're using dark theme
+                toReturn = SSReadingDisplayOptions.SS_THEME_DARK;
+                break;
+            case Configuration.UI_MODE_NIGHT_UNDEFINED:
+                // We don't know what mode we're in, assume notnight
+                toReturn = SSReadingDisplayOptions.SS_THEME_LIGHT;
+                break;
+        }
+
+        return toReturn;
     }
 }

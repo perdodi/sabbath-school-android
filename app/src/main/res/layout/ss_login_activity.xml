@@ -22,12 +22,13 @@
   ~ THE SOFTWARE.
   -->
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    >
 
     <data>
-
         <variable
             name="viewModel"
             type="com.cryart.sabbathschool.viewmodel.SSLoginViewModel" />
@@ -36,6 +37,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorBackground"
         tools:context="com.cryart.sabbathschool.view.SSLoginActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -53,7 +55,7 @@
                 android:layout_width="@dimen/ss_login_app_logo_size"
                 android:layout_height="@dimen/ss_login_app_logo_size"
                 android:contentDescription="@string/blank"
-                android:tint="@color/primary"
+                android:tint="@color/colorPrimary"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -68,7 +70,7 @@
                 android:layout_marginTop="@dimen/ss_login_app_name_margin_top"
                 android:fontFamily="@font/lato_bold"
                 android:text="@string/ss_app_name"
-                android:textColor="@color/primary"
+                android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/ss_login_app_name_font_size"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

@@ -23,10 +23,12 @@
 package com.cryart.sabbathschool.view;
 
 
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.databinding.DataBindingUtil;
@@ -34,6 +36,7 @@ import androidx.databinding.DataBindingUtil;
 import com.cryart.sabbathschool.R;
 import com.cryart.sabbathschool.databinding.SsAboutActivityBinding;
 import com.cryart.sabbathschool.misc.SSColorTheme;
+import com.cryart.sabbathschool.misc.SSColorThemeHelper;
 import com.cryart.sabbathschool.misc.SSConstants;
 import com.cryart.sabbathschool.misc.SSEvent;
 import com.cryart.sabbathschool.viewmodel.SSAboutViewModel;
@@ -82,4 +85,12 @@ public class SSAboutActivity extends SSColorSchemeActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    /*
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        SSColorThemeHelper.Companion.updateConfiguration(this, newConfig);
+    }
+    */
 }
