@@ -24,8 +24,6 @@ package com.cryart.sabbathschool.model;
 
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-
-import com.cryart.sabbathschool.SSApplication;
 import com.cryart.sabbathschool.misc.SSConstants;
 
 public class SSReadingDisplayOptions {
@@ -52,8 +50,8 @@ public class SSReadingDisplayOptions {
     public String size;
     public String font;
 
-    public SSReadingDisplayOptions(){
-        this(SS_THEME_LIGHT, SS_SIZE_MEDIUM, SS_FONT_ANDADA);
+    public SSReadingDisplayOptions(SharedPreferences defaultSharedPreferences){
+        //this(SS_THEME_LIGHT, SS_SIZE_MEDIUM, SS_FONT_ANDADA);
     }
 
     public SSReadingDisplayOptions(String theme, String size, String font){

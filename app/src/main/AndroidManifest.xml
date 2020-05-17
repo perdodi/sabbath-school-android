@@ -112,7 +112,7 @@
 
         <activity
             android:name="com.cryart.sabbathschool.view.SSAboutActivity"
-            android:configChanges="orientation|screenSize"
+            android:configChanges="uiMode|orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
