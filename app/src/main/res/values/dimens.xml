@@ -136,10 +136,11 @@
     <dimen name="ss_lessons_toolbar_description_margin_top">20dp</dimen>
     <dimen name="ss_lessons_toolbar_description_margin_left">20dp</dimen>
     <dimen name="ss_lessons_toolbar_description_margin_right">40dp</dimen>
+    <dimen name="ss_lessons_toolbar_description_min_height">160dp</dimen>
     <dimen name="ss_lessons_toolbar_read_margin">20dp</dimen>
     <dimen name="ss_lessons_toolbar_read_min_width">140dp</dimen>
     <dimen name="ss_lessons_toolbar_read_border">0dp</dimen>
-    <dimen name="ss_lessons_toolbar_read_radius">30dp</dimen>
+    <dimen name="ss_lessons_toolbar_read_radius">20dp</dimen>
 
     <dimen name="ss_lesson_item_content_padding_top">15dp</dimen>
     <dimen name="ss_lesson_item_content_padding_bottom">15dp</dimen>
@@ -249,4 +250,6 @@
     <dimen name="dialogPreferredPadding">24dp</dimen>
     <dimen name="dialogPreferredPaddingLarge">36dp</dimen> <!-- dialogPreferredPadding + 12dp -->
 
+    <dimen name="elevation_bottom_sheet">16dp</dimen>
+    <dimen name="peek_height_bottom_sheet_modal">1000dp</dimen>
 </resources>

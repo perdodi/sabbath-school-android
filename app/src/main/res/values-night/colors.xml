@@ -22,6 +22,7 @@
   -->
 
 <resources>
+    <color name="colorSecondaryDarker">@android:color/white</color>
     <color name="colorBackground">#212325</color>
     <color name="text_primary">#949595</color>
     <color name="text_secondary">#616161</color>

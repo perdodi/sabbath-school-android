@@ -32,10 +32,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+import androidx.annotation.Nullable;
 import androidx.core.widget.NestedScrollView;
 import androidx.databinding.ObservableInt;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.crashlytics.android.Crashlytics;
 import com.cryart.sabbathschool.R;
 import com.cryart.sabbathschool.databinding.SsReadingActivityBinding;
 import com.cryart.sabbathschool.misc.SSConstants;
@@ -156,7 +156,7 @@ public class SSReadingViewModel implements SSViewModel, SSReadingView.ContextMen
                                 ssLessonLoadingVisibility.set(View.INVISIBLE);
                                 ssLessonCoordinatorVisibility.set(View.INVISIBLE);
                             } catch (Exception e) {
-                                Crashlytics.logException(e);
+                                Timber.e(e);
                             }
                         }
                     }
@@ -372,11 +372,15 @@ public class SSReadingViewModel implements SSViewModel, SSReadingView.ContextMen
         ssLessonCoordinatorVisibility = null;
     }
 
+    @Nullable
     private SSReadingView getCurrentSSReadingView() {
-        return ssReadingActivityBinding.ssReadingViewPager
-                .findViewWithTag("ssReadingView_" + ssReadingActivityBinding.ssReadingViewPager
-                        .getCurrentItem())
-                .findViewById(R.id.ss_reading_view);
+        View view = ssReadingActivityBinding.ssReadingViewPager
+                .findViewWithTag("ssReadingView_" + ssReadingActivityBinding.ssReadingViewPager.getCurrentItem());
+        if (view != null) {
+            return view.findViewById(R.id.ss_reading_view);
+        } else {
+            return null;
+        }
     }
 
     public void onMenuClick() {
@@ -516,7 +520,7 @@ public class SSReadingViewModel implements SSViewModel, SSReadingView.ContextMen
                     .child(ssReadHighlights.readIndex)
                     .setValue(ssReadHighlights);
 
-            SSEvent.track(SSConstants.SS_EVENT_TEXT_HIGHLIGHTED, new HashMap<String, Object>() {{
+            SSEvent.track(context, SSConstants.SS_EVENT_TEXT_HIGHLIGHTED, new HashMap<String, Object>() {{
                 put(SSConstants.SS_EVENT_PARAM_READ_INDEX, ssReads.get(ssReadingActivityBinding.ssReadingViewPager.getCurrentItem()).index);
             }});
         }
@@ -530,7 +534,7 @@ public class SSReadingViewModel implements SSViewModel, SSReadingView.ContextMen
                     .child(ssReadComments.readIndex)
                     .setValue(ssReadComments);
 
-            SSEvent.track(SSConstants.SS_EVENT_COMMENT_CREATED, new HashMap<String, Object>() {{
+            SSEvent.track(context, SSConstants.SS_EVENT_COMMENT_CREATED, new HashMap<String, Object>() {{
                 put(SSConstants.SS_EVENT_PARAM_READ_INDEX, ssReads.get(ssReadingActivityBinding.ssReadingViewPager.getCurrentItem()).index);
             }});
         }
@@ -555,7 +559,7 @@ public class SSReadingViewModel implements SSViewModel, SSReadingView.ContextMen
         ssReadingDisplayOptionsView.setSSReadingViewModel(context, this, ssReadingDisplayOptions);
         ssReadingDisplayOptionsView.show(((SSReadingActivity) context).getSupportFragmentManager(), ssReadingDisplayOptionsView.getTag());
 
-        SSEvent.track(SSConstants.SS_EVENT_READ_OPTIONS_OPEN, new HashMap<String, Object>() {{
+        SSEvent.track(context, SSConstants.SS_EVENT_READ_OPTIONS_OPEN, new HashMap<String, Object>() {{
             put(SSConstants.SS_EVENT_PARAM_READ_INDEX, ssReads.get(ssReadingActivityBinding.ssReadingViewPager.getCurrentItem()).index);
         }});
     }
@@ -582,38 +586,50 @@ public class SSReadingViewModel implements SSViewModel, SSReadingView.ContextMen
 
     public void unHighlightSelection() {
         SSReadingView ssReadingView = getCurrentSSReadingView();
-        ssReadingView.ssReadViewBridge.unHighlightSelection(highlightId);
-        ssReadingView.selectionFinished();
+        if (ssReadingView != null) {
+            ssReadingView.ssReadViewBridge.unHighlightSelection(highlightId);
+            ssReadingView.selectionFinished();
+        }
     }
 
     private void highlightSelection(String color) {
         SSReadingView ssReadingView = getCurrentSSReadingView();
-        ssReadingView.ssReadViewBridge.highlightSelection(color, highlightId);
-        ssReadingView.selectionFinished();
+        if (ssReadingView != null) {
+            ssReadingView.ssReadViewBridge.highlightSelection(color, highlightId);
+            ssReadingView.selectionFinished();
+        }
         highlightId = 0;
     }
 
     public void copy() {
         SSReadingView ssReadingView = getCurrentSSReadingView();
-        ssReadingView.ssReadViewBridge.copy();
-        ssReadingView.selectionFinished();
+        if (ssReadingView != null) {
+            ssReadingView.ssReadViewBridge.copy();
+            ssReadingView.selectionFinished();
+        }
     }
 
     public void paste() {
         SSReadingView ssReadingView = getCurrentSSReadingView();
-        ssReadingView.ssReadViewBridge.paste();
+        if (ssReadingView != null) {
+            ssReadingView.ssReadViewBridge.paste();
+        }
     }
 
     public void share() {
         SSReadingView ssReadingView = getCurrentSSReadingView();
-        ssReadingView.ssReadViewBridge.share();
-        ssReadingView.selectionFinished();
+        if (ssReadingView != null) {
+            ssReadingView.ssReadViewBridge.share();
+            ssReadingView.selectionFinished();
+        }
     }
 
     public void search() {
         SSReadingView ssReadingView = getCurrentSSReadingView();
-        ssReadingView.ssReadViewBridge.search();
-        ssReadingView.selectionFinished();
+        if (ssReadingView != null) {
+            ssReadingView.ssReadViewBridge.search();
+            ssReadingView.selectionFinished();
+        }
     }
 
     public void onSSReadingDisplayOptions(SSReadingDisplayOptions ssReadingDisplayOptions) {
@@ -627,9 +643,10 @@ public class SSReadingViewModel implements SSViewModel, SSReadingView.ContextMen
         editor.apply();
 
         SSReadingView ssReadingView = getCurrentSSReadingView();
-
-        ssReadingView.setReadingDisplayOptions(ssReadingDisplayOptions);
-        ssReadingView.updateReadingDisplayOptions();
+        if (ssReadingView != null) {
+            ssReadingView.setReadingDisplayOptions(ssReadingDisplayOptions);
+            ssReadingView.updateReadingDisplayOptions();
+        }
 
         for (int i = 0; i < this.ssTotalReadsCount; i++) {
             if (i == ssReadingActivityBinding.ssReadingViewPager.getCurrentItem()) continue;

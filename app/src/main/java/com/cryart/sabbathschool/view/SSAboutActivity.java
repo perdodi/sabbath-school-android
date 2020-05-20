@@ -27,12 +27,9 @@ import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.databinding.DataBindingUtil;
-
 import com.cryart.sabbathschool.R;
 import com.cryart.sabbathschool.databinding.SsAboutActivityBinding;
 import com.cryart.sabbathschool.misc.SSColorTheme;
@@ -70,7 +67,7 @@ public class SSAboutActivity extends SSColorSchemeActivity {
         this.ssFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         this.ssFirebaseAuth = FirebaseAuth.getInstance();
 
-        SSEvent.track(SSConstants.SS_EVENT_ABOUT_OPEN);
+        SSEvent.track(this, SSConstants.SS_EVENT_ABOUT_OPEN);
 
         updateWindowColorScheme();
     }
