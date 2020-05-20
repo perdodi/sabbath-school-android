@@ -21,6 +21,7 @@
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.cryart.sabbathschool">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -46,7 +47,8 @@
         android:resizeableActivity="true"
         android:supportsPictureInPicture="true"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning,LockedOrientationActivity">
 
         <activity
             android:name="com.cryart.sabbathschool.ui.splash.SplashActivity"
@@ -114,7 +116,7 @@
 
         <activity
             android:name="com.cryart.sabbathschool.view.SSAboutActivity"
-            android:configChanges="orientation|screenSize"
+            android:configChanges="uiMode|orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 

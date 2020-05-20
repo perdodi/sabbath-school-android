@@ -38,7 +38,8 @@
         android:supportsPictureInPicture="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
+        tools:ignore="GoogleAppIndexingWarning,LockedOrientationActivity"
+   >
 
         <activity
             android:name="com.cryart.sabbathschool.ui.splash.SplashActivity"

@@ -49,6 +49,7 @@
     <string name="ss_settings_color_theme_light">"Light"</string>
     <string name="ss_settings_color_theme_sepia">"Sepia"</string>
     <string name="ss_settings_color_theme_dark">"Dark"</string>
+    <string name="ss_settings_color_theme_system_default" translatable="false">"System default"</string> <!-- TODO: Translate it -->
     <string name="ss_settings_typeface">"Typeface"</string>
     <string name="ss_settings_font_size">"Font size"</string>
     <string name="ss_settings_font_size_tiny">"Tiny"</string>
